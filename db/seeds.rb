@@ -8,4 +8,10 @@
 
 
 ################ Sample Places ################
-chipotle = Place.create! creator_id: 1, description: "\"It's pronounced 'Chip-po-tlay'.\"" user_id: 1, name: "Chipotle", address: "233 W Lake St", phone: "(312) 263-6230", website: "http://chipotle.com"
+chipotle = Place.create!(description: "\"It's pronounced 'Chip-po-tlay'.\"", 
+						 user_id: 1, 
+						 name: "Chipotle", 
+						 address: "233 W Lake St", 
+						 phone: "(312) 263-6230", 
+						 website: "http://chipotle.com"
+						 )
