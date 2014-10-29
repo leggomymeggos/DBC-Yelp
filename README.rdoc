@@ -1,28 +1,100 @@
-== README
+DBC Yelp
+========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Locate popular lunch places surrounding DBC Chicago
 
-Things you may want to cover:
+<b>DBC Yelp</b> is a tool to help current Dev Bootcamp students find a lunch spot that is close, cost-efficient, and reviewed by fellow boots. We aggregated lunch locations within a two mile radius of DBC and ranked them based on distance, positive feedback, and category of food (i.e. Sandwiches, Mexican, BBQ, etc). This has been designed by boots for boots. Happy eating!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Take a peak! http://dbc-yelp.herokuapp.com
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Sample Screenshots
+
+*insert screenshots - link from my PhotoBucket*
+
+
+=== System Requirements
+
+- Ruby 2.0.0 p-481
+- Rails 4.1.6
+- Postgres 9.3.2
+- Internet access
+
+
+=== External APIs and Libraries
+<b>Google Maps</b>
+
+Build highly customisable maps with specific content and imagery
+
+- API: https://developers.google.com/maps/web/
+- Docs: https://developers.google.com/maps/documentation/embed/guide
+
+
+=== Getting Started
+
+1. Clone to local machine: <tt>git clone https://github.com/jhendge/DBC-Yelp.git</tt>
+2. Install dependencies: <tt>bundle</tt>
+3. Initialize database: <tt>rake db:reset</tt>
+4. Run server: <tt>rails s</tt>
+5. Visit http://localhost:3000
+
+
+=== Workflow
+
+<em>As a collaborator on this project, I hold myself to high standard of code, commit often, and never push to the master branch.</em>
+
+1. Starting out, or if using a new development workstation:
+
+   <tt>git clone https://github.com/jhendge/DBC-Yelp.git</tt>
+
+
+2. Create new branch for the feature you're working on:
+
+   <tt>git checkout -b Joe_sweetbranch</tt>
+3. To bring the local code base up-to-date, first checkout master branch:
+
+   <tt>git checkout master</tt>
+
+4. Pull in the latest code from the master branch:
+
+   <tt>git pull origin master</tt>
+
+5. Then switch back to your feature branch before merging code from master:
+
+   <tt>git checkout Joe_sweetbranch</tt>
+
+6. Now merge the updated master branch code into your current feature branch:
+
+   <tt>git merge master</tt>
+
+7. Now you may work on the code for your feature branch. COMMIT OFTEN.
+
+8. When you are ready to submit code to the project repo, go ahead and commit one more time. First include files that were changed:
+
+   <tt>git add .</tt>
+
+9. Then commit the changes you've made:
+
+   <tt>git commit -m "Add sweet feature to do sweet thing"</tt>
+
+10. Repeat step <b>3 through 6</b> to ensure your code base is up-to-date with any changes to master that might have occured in the time you were working on your feature branch. Solve conflicts if present.
+
+11. Push your code to your remote feature branch:
+
+    <tt>git push origin Daniel_awesomebranch</tt>
+
+12. Submit a pull request on Github for code review.
+
+
+=== Running the Test Suite
+
+<tt>rspec</tt>
+
+
+=== Brought to You By
+http://i1294.photobucket.com/albums/b613/jhendge/Mobile%20Uploads/2014-10/A100DA08-44F3-4C42-9FD4-21DEC8936C31_zpsrfrh5nav.jpg
+
+Josh:: https://github.com/JackMarx
+Raphaël:: https://github.com/Kyhz
+Shomari:: https://github.com/Shomari
+Joe:: https://github.com/jhendge
