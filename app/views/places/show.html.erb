@@ -1,0 +1,9 @@
+<div class="place_container">
+	<h1><%= @place.name %></h1>
+	<div class="photo_container">
+		<% @place.photos.each do |photo| %>
+		<img src=<%= photo.url %> />
+		<% end %>
+	</div>
+	<p><%= @place.description %></p>
+</div>
