@@ -1,9 +1,12 @@
 <div class="place_container">
 	<h1><%= @place.name %></h1>
+	<div class="place_score"><%= @place.score %></div>
+	<div class="place_map_container"><%= @place.map %></div>
 	<div class="photo_container">
 		<% @place.photos.each do |photo| %>
 		<img src=<%= photo.url %> />
 		<% end %>
 	</div>
-	<p><%= @place.description %></p>
+	<p class="place_description"><%= @place.description %></p>
+
 </div>
