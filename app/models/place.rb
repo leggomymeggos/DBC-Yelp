@@ -17,8 +17,8 @@ class Place < ActiveRecord::Base
 
 
   def map
-  	###### TODO
-
+  	###### TODO ######
+  	"<map goes here>"
   end
 
   def score

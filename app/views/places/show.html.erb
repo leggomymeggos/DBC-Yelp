@@ -1,12 +1,25 @@
 <div class="place_container">
-	<h1><%= @place.name %></h1>
-	<div class="place_score"><%= @place.score %></div>
+
+	<header>
+		<h1><%= @place.name %></h1>
+		<div id="place_score"><%= @place.score %></div>
+		<div id="place_phone"><% @place.phone %></div>
+		<div id="place_address"><% @place.address %></div>
+		<div id="place_website"><% @place.website %></div>
+	</header>
+
 	<div class="place_map_container"><%= @place.map %></div>
 	<div class="photo_container">
 		<% @place.photos.each do |photo| %>
-		<img src=<%= photo.url %> />
+			<%= render :"photos/show", locals: {:photo => photo} %>
 		<% end %>
 	</div>
 	<p class="place_description"><%= @place.description %></p>
+
+	<div class="reviews_container">
+		<% @places.reviews.each do |review| %>
+		<%= render :"reviews/show", locals: {:review => review} %>
+		<% end %>
+	</div>
 
 </div>
