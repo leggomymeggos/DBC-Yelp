@@ -27,32 +27,46 @@ RSpec.describe PlacesController do
 
 	describe "PUT #update" do
 
-		it "updates the place in the DB" do
+		before(:each) do 
 			blackwood.save
+		end
+
+		it "should update the place in the DB" do
 			put "update", place: update_params, id: blackwood.id
 			expect(assigns(:place).name).to eq("Blackerwood")
 		end
 
-		it "returns JSON with the new params if an AJAX call is made" do
+		it "NOT-MVP should return JSON with the new params if an AJAX call is made" do
 			pending
 		end
 
-		it "redirects to the place's page if JS is disabled" do
-			pending
+		it "should redirect to the place's page if JS is disabled" do
+			put "update", place: update_params, id: blackwood.id
+			expect(subject).to redirect_to(place_path(blackwood))
 		end
 
 	end
 
 	describe "GET #edit" do
 
-		it "renders an edit form" do
-			#blackwood.save
-			#get :edit, id: blackwood.id
+		before(:each) do 
+			blackwood.save
+		end
+
+		it "should redirect to an edit form" do
+			blackwood.save
+			get :edit, id: blackwood.id
+			expect(subject).to redirect_to(edit_place_path(blackwood))
 		end
 
 	end
 
 	describe "GET #new" do
+
+		it "should render a form to create a new place" do
+			get :new
+			expect(subject).to render_template(:"places/form")
+		end
 	end
 
 	describe "POST #create" do

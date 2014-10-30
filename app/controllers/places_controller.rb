@@ -21,12 +21,7 @@ class PlacesController < ActionController::Base
 
 	def new
 		@place = Place.new()
-		if request.xhr? # AJAX call
-			#return some data to make a form
-		else # HTTP request
-			# display a normal form
-			render :"places/form"
-		end
+		render :"places/form"
 	end
 
 	def update
