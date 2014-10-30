@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :categories, only: [:index] do
   end
 
-  resources :places, except: [:destroy] do
+
+  root to: 'pages#index'
+
+  resources :places do
     resources :photos
+
     resources :votes
   end
 
