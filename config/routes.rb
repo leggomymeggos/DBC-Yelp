@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  resources :categories, only: [:index] do
-    resources :places, except: [:destroy]
-  end
-=======
-  # resources :places, except: [:destroy]
-
   resources :categories, only: [:index] do
 	  resources :places, except: [:destroy] do
 	    resources :votes
