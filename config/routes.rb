@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/map' => 'maps#index'
+  get '/script' => 'maps#script'
+
 end

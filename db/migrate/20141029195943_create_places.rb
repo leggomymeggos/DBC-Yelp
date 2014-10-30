@@ -3,6 +3,7 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :places do |t|
       t.belongs_to :user, index: true
       t.belongs_to :category, index: true
+      t.belongs_to :map
       t.string :name
       t.string :address
       t.string :phone

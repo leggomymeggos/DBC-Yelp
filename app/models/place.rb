@@ -10,10 +10,12 @@ class Place < ActiveRecord::Base
   #  t.text :description
 
   belongs_to :user
+  belongs_to :map
   belongs_to :category
   has_many :votes, as: :voteable
   has_many :photos
   has_many :reviews
+
 
 
   def map
