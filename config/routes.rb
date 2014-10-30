@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # resources :places, except: [:destroy]
 
-  resources :places, except: [:destroy] do
+  resources :places do
     resources :votes
     resources :reviews do
       resources :votes

@@ -11,13 +11,9 @@ class PlacesController < ActionController::Base
 	end
 
 	def edit
+		# should only get called if JS is disabled
 		@place = Place.find(params[:id])
-		if request.xhr? # AJAX call
-			#return some data to make a form
-		else
-			# display a normal form
-			render :"places/form"
-		end
+		redirect_to edit_place_path(@place)
 	end
 
 	def index
@@ -27,19 +23,26 @@ class PlacesController < ActionController::Base
 		@place = Place.new()
 		if request.xhr? # AJAX call
 			#return some data to make a form
-		else
+		else # HTTP request
 			# display a normal form
 			render :"places/form"
 		end
 	end
 
 	def update
-		@place = Place.new(params_place)
+		@place = Place.find(params[:id])
+		if request.xhr?
+			# AJAX stuff
+		else
+			if @place.update_attributes(params_place)
+				redirect_to place_path(@place)
+			end
+		end
 	end
 
 	private
 
 	def params_place
-		params.require(:place).allow(:category, :name, :address, :phone, :website, :description)
+		params.require(:place).permit(:category, :name, :address, :phone, :website, :description)
 	end
 end
