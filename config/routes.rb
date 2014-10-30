@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # resources :places, except: [:destroy]
 
+  root to: 'pages#index'
+
   resources :places do
     resources :votes
     resources :reviews do

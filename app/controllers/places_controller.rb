@@ -24,15 +24,16 @@ class PlacesController < ActionController::Base
 	def edit
 		# should only get called if JS is disabled
 		@place = Place.find(params[:id])
-		redirect_to edit_place_path(@place)
+		return redirect_to edit_place_path(@place)
 	end
 
 	def index
+		# AJAX call for main page?
 	end
 
 	def new
 		@place = Place.new()
-		render :"places/form"
+		return render :"places/form"
 	end
 
 	def update
@@ -44,6 +45,12 @@ class PlacesController < ActionController::Base
 				return redirect_to place_path(@place)
 			end
 		end
+	end
+
+	def destroy
+		place = Place.find(params[:id])
+		place.destroy
+		return redirect_to root_url
 	end
 
 	private

@@ -36,7 +36,7 @@ RSpec.describe PlacesController do
 			expect(assigns(:place).name).to eq("Blackerwood")
 		end
 
-		it "NOT-MVP should return JSON with the new params if an AJAX call is made" do
+		xit "NOT-MVP should return JSON with the new params if an AJAX call is made" do
 			pending
 		end
 
@@ -58,6 +58,12 @@ RSpec.describe PlacesController do
 			get :edit, id: blackwood.id
 			expect(subject).to redirect_to(edit_place_path(blackwood))
 		end
+
+	end
+
+	describe "GET #edit" do
+
+		#it should probably do something
 
 	end
 
@@ -83,7 +89,7 @@ RSpec.describe PlacesController do
 
 		end
 
-		it "NOT-MVP should return some JSON on an AJAX call" do
+		xit "NOT-MVP should return some JSON on an AJAX call" do
 			pending
 		end
 
@@ -94,8 +100,19 @@ RSpec.describe PlacesController do
 			expect(subject).to render_template(:"places/form")
 		end
 
-		it "NOT-MVP should return an error in JSON if the AJAX post has invalid params" do
+		xit "NOT-MVP should return an error in JSON if the AJAX post has invalid params" do
 			pending
+		end
+
+	end
+
+	describe "DELETE #destroy" do
+
+		it "should redirect to the home page" do
+			blackwood.save
+			delete :destroy, id: blackwood.id
+			expect{Place.find(blackwood.id)}.to raise_error(ActiveRecord::RecordNotFound)
+			expect(subject).to redirect_to root_url
 		end
 
 	end
