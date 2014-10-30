@@ -7,7 +7,18 @@ class PlacesController < ActionController::Base
 
 	def create
 		@place = Place.new(params_place)
-		@place.user = current_user # UserHelper method
+		@place.user_id = current_user.id # UserHelper method
+		if request.xhr?
+			# Return some JSON stuff
+		else
+			if @place.valid?
+				@place.save
+				return redirect_to place_path(@place)
+			else
+				@error = "That don't be right."
+				return render :"places/form"
+			end
+		end
 	end
 
 	def edit
@@ -30,7 +41,7 @@ class PlacesController < ActionController::Base
 			# AJAX stuff
 		else
 			if @place.update_attributes(params_place)
-				redirect_to place_path(@place)
+				return redirect_to place_path(@place)
 			end
 		end
 	end

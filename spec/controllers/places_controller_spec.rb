@@ -67,22 +67,34 @@ RSpec.describe PlacesController do
 			get :new
 			expect(subject).to render_template(:"places/form")
 		end
+
 	end
 
 	describe "POST #create" do
 
-		it "should save a place to the DB" do
-			pending
+		before(:each) do
+			controller.stub(:current_user).and_return(double("user", id: 1))
 		end
 
-		it "should return some JSON on an AJAX call" do
+		it "should save a place to the DB and redirect to that place's page" do
+			post :create, place: valid_params
+			expect(assigns(:place).valid?).to be_truthy
+			expect(subject).to redirect_to place_path(assigns(:place))
+
+		end
+
+		it "NOT-MVP should return some JSON on an AJAX call" do
 			pending
 		end
 
 		it "should re-render the form with some error(s) if the params aren't valid" do
+			post :create, place: invalid_params
+			expect(assigns(:place).valid?).to be_falsey
+			expect(assigns(:error)).to_not be_nil
+			expect(subject).to render_template(:"places/form")
 		end
 
-		it "should return an error in JSON if the AJAX post has invalid params" do
+		it "NOT-MVP should return an error in JSON if the AJAX post has invalid params" do
 			pending
 		end
 

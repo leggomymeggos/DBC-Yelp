@@ -15,6 +15,8 @@ class Place < ActiveRecord::Base
   has_many :photos
   has_many :reviews
 
+  validates :address, presence: true
+
 
   def map
   	###### TODO ######
