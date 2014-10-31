@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Category do 
+describe Category do
 
   it {should have_many(:places)}
 end
